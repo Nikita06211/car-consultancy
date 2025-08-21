@@ -138,12 +138,16 @@ export default function CarListingsWrapper() {
       {/* Mobile Drawer Filters */}
       {showFilters && (
         <div className="fixed inset-0 z-50 flex">
+          {/* Overlay */}
           <div
             className="fixed inset-0 bg-black/50"
             onClick={() => setShowFilters(false)}
           ></div>
+
+          {/* Drawer */}
           <div
-            className={`w-full sm:w-80 bg-white dark:bg-[#1e293b] h-full overflow-y-auto p-4 shadow-xl`}
+            className="w-full sm:w-80 bg-white dark:bg-[#1e293b] h-full overflow-y-auto p-4 shadow-xl z-50"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
           >
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-bold text-[#19e796]">Filters</h3>
