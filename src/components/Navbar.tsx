@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+import Image from "next/image";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
@@ -39,15 +40,20 @@ const Navbar = () => {
       `}
     >
       {/* Logo */}
-      <div className="flex items-center gap-3">
-        <span>
-          {/* Logo SVG similar to screenshot */}
-          <svg height="28" width="32" viewBox="0 0 40 32" fill="none">
-            <circle cx="10" cy="16" r="8" fill="#15ce8a"/>
-            <rect x="18" y="13" width="20" height="6" rx="3" fill="#15ce8a"/>
-          </svg>
-        </span>
-        <span className="font-extrabold text-[1.7rem] tracking-tight" style={{color: theme === 'dark' ? "#15ce8a" : "#18bc8a"}}>
+       <div className="flex items-center gap-3">
+        <Image
+          src="/images/logo.png" // 👉 place your logo in the public/ folder as logo.png
+          alt="Auto Wisdom Logo"
+          width={40}
+          height={40}
+          className="rounded-full"
+        />
+        <span
+          className="font-extrabold text-[1.7rem] tracking-tight"
+          style={{
+            color: theme === "dark" ? "#15ce8a" : "#18bc8a",
+          }}
+        >
           Auto Wisdom
         </span>
       </div>
