@@ -1,26 +1,105 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root.light {
+  --hero-bg-color: #eafaf7; /* Soft mint for light mode */
+  --hero-dot-color: #b7e6e2cc;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root.dark {
+  --hero-bg-color: #0d161c; /* Dark navy for dark mode */
+  --hero-dot-color: #19e79622;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root.light .hero-title {
+  color: #14b375;
+}
+:root.dark .hero-title {
+  color: #15ce8a;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.hero-bg {
+  background-color: var(--hero-bg-color);
+  background-image: radial-gradient(circle, var(--hero-dot-color) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+
+body.dark {
+  background-color: #0d161c;
+  color: #e6fff7;
+}
+
+.bg-dark-matrix {
+  background-color: #0d161c;
+  background-image: radial-gradient(circle, #19e79622 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.bg-light-matrix {
+  background-color: #eafaf7;
+  background-image: radial-gradient(circle, #b7e6e2cc 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+
+body.light {
+  background-color: #effcf6;
+  color: #182426;
+}
+
+/* Dotted grid background for hero */
+.hero-bg {
+  position: relative;
+  background-image: radial-gradient(circle, #1fbc8b29 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Headline styles */
+.hero-title {
+  color: #15ce8a;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+/* CTA button */
+.cta-btn {
+  background: linear-gradient(90deg, #1be497 0%, #17b982 85%);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.9rem 2.5rem;
+  box-shadow: 0 2px 16px rgba(23, 185, 130, 0.25);
+  transition: background 0.18s;
+}
+.cta-btn:hover {
+  background: linear-gradient(90deg, #119b68 0%, #1be497 100%);
+}
+
+/* Card highlights */
+.hero-highlight {
+  background: #0d161c33;
+  border-radius: 2rem;
+  padding: 0.8rem 2rem;
+  font-weight: 500;
+  color: #15ce8a;
+  transition: background 0.18s;
+}
+
+body.light .hero-title {
+  color: #14b375;
+}
+body.light .hero-highlight {
+  background: #cddfe777;
+  color: #14b375;
+}
+body.light .cta-btn {
+  background: linear-gradient(90deg, #b6efe2 0%, #20c389 100%);
+}
+
+.hero-subtext {
+  color: #707679;
+}
+
+body.light .hero-subtext {
+  color: #454f52;
 }
