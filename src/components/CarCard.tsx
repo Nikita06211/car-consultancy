@@ -52,17 +52,15 @@ const CarCard: React.FC<CarCardProps> = ({ car, imageIndex }) => {
         </div>
 
         <div className="mt-4 flex-1 flex flex-col justify-between">
-          {/* Car name + price in one row */}
           <div className="flex items-center justify-between">
             <h4 className={`font-semibold text-md ${theme==='dark'? 'text-gray-300': 'text-gray-600'}`}>
               {car.brand} {car.model}
             </h4>
-            {/* <div className="text-[#19e796] font-bold text-lg">${car.price}</div> */}
             <div className='text-sm text-gray-400 font-semibold'>Price on Request</div>
           </div>
           <div className="text-sm text-gray-400">{car.body_type}</div>
 
-          <div className={`flex flex-col gap-1 text-gray-300 text-sm my-3`}>
+          <div className={`flex flex-col gap-1 ${theme==='light'? 'text-gray-500':'text-gray-400'}  text-sm my-3`}>
             <div className="flex items-center gap-2">
               <FaCalendarAlt /> {car.year}
             </div>

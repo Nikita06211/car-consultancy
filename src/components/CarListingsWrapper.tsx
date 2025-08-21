@@ -1,4 +1,3 @@
-// components/CarListingsWrapper.tsx
 "use client";
 import React, { useState, useMemo, useEffect } from "react";
 import { mockData } from "@/data/mockCars";

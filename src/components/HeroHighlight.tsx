@@ -27,10 +27,10 @@ const HeroHighlight: React.FC<HeroHighlightProps> = ({ number, label }) => {
 
   return (
     <span
-      className={`inline-flex items-center rounded-full px-6 py-3 ${highlightBg} backdrop-blur text-lg font-medium`}
+      className={`inline-flex items-center rounded-full px-6 py-3 ${highlightBg} backdrop-blur`}
     >
-      <span className={`mr-2 font-bold ${accent}`}>{number}</span>
-      <span className={highlightText}>{label}</span>
+      <span className={`mr-2  lg:text-lg lg:font-medium md:text-medium md:font-medium sm:text-xs sm:font-normal ${accent}`}>{number}</span>
+      <span className={`${highlightText} lg:text-lg lg:font-medium md:text-medium md:font-medium sm:text-xs sm:font-bold`}>{label}</span>
     </span>
   );
 };
