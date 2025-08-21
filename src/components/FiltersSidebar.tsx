@@ -94,8 +94,9 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
               const newMaxPrice = Number(e.target.value);
               setFilters((f: Filters) => ({ ...f, priceRange: [f.priceRange[0], newMaxPrice] }));
             }}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
+            className="w-full h-2 rounded-lg appearance-none cursor-pointer"
             style={{
+              accentColor:"#15c17d", 
               background: `linear-gradient(to right, #19e796 0%, #19e796 ${(filters.priceRange[1] / maxPrice) * 100}%, #e2e8f0 ${(filters.priceRange[1] / maxPrice) * 100}%, #e2e8f0 100%)`,
             }}
           />
@@ -121,6 +122,7 @@ const FiltersSidebar: React.FC<FiltersSidebarProps> = ({
             }}
             className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
             style={{
+              accentColor:"#15c17d",
               background: `linear-gradient(to right, #19e796 0%, #19e796 ${((filters.yearRange[1] - minYear) / (maxYear - minYear)) * 100}%, #e2e8f0 ${((filters.yearRange[1] - minYear) / (maxYear - minYear)) * 100}%, #e2e8f0 100%)`,
             }}
           />

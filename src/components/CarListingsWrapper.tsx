@@ -124,7 +124,7 @@ export default function CarListingsWrapper() {
           </div>
 
           {/* Car Grid */}
-          <div className="grid lg:ml-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <div className="grid lg:ml-7 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {currentCars.map((car, index) => (
               <motion.div
                 key={car.car_id}
