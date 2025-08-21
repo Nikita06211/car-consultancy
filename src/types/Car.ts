@@ -15,6 +15,8 @@ export interface Car {
     top_speed: number;
     fuel_efficiency_highway: number;
     cylinders: number;
+    engine?:string,
+    engine_type?: string,
     engine_displacement: number;
     specifications_id: number;
     acceleration_0_100_kmph: number;

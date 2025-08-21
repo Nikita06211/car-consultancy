@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
+import Navbar from "@/components/Navbar";
 
 
 const geistSans = Geist({
@@ -28,6 +29,7 @@ return (
     <html lang="en">
       <body>
         <ThemeProvider>
+          <Navbar/>
           {children}
         </ThemeProvider>
       </body>

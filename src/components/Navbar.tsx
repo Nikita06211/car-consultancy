@@ -2,8 +2,12 @@
 import React from 'react';
 import { useTheme } from '../contexts/ThemeContext';
 import Image from "next/image";
+import { usePathname, useRouter } from 'next/navigation';
 
 const Navbar = () => {
+  const router = useRouter();
+  const pathname = usePathname();
+  const showBack = pathname && pathname.startsWith('/car/');
   const { theme, toggleTheme } = useTheme();
 
   // Sun and moon icons (svg inline, accessible)
@@ -33,16 +37,25 @@ const Navbar = () => {
   );
 
   return (
-    <nav
-      className={`flex items-center justify-between px-8 py-4 shadow-md
-        transition-colors duration-300
-        ${theme === 'dark' ? 'bg-[#10191e] text-white' : 'bg-[#f7fcfa] text-[#18bc8a]'}
-      `}
-    >
+    <nav className={`flex items-center justify-between px-8 py-4 shadow-md
+      transition-colors duration-300
+      ${theme === 'dark' ? 'bg-[#10191e] text-white' : 'bg-[#f7fcfa] text-[#18bc8a]'}
+    `}>
+      {/* Back button if on details page */}
+      {showBack && (
+        <button
+          onClick={() => router.back()}
+          className="mr-4 p-2 rounded hover:bg-gray-700 flex items-center"
+        >
+          <span className="text-xl mr-2">&larr;</span>
+          Back
+        </button>
+      )}
+
       {/* Logo */}
-       <div className="flex items-center gap-3">
+      <div className="flex items-center gap-3">
         <Image
-          src="/images/logo.png" // 👉 place your logo in the public/ folder as logo.png
+          src="/images/logo.png"
           alt="Auto Wisdom Logo"
           width={40}
           height={40}
@@ -58,7 +71,7 @@ const Navbar = () => {
         </span>
       </div>
 
-      {/* Search input mockup (placeholder, non-functional) */}
+      {/* Search input mockup */}
       <div className="hidden md:block flex-1 mx-8">
         <input
           type="text"
@@ -71,7 +84,6 @@ const Navbar = () => {
 
       {/* Actions */}
       <div className="flex items-center gap-5">
-        {/* Consult button */}
         <button
           className={`px-5 py-2 rounded-full font-semibold shadow
             ${theme === 'dark'
@@ -81,8 +93,6 @@ const Navbar = () => {
         >
           + Get Consultation
         </button>
-
-        {/* Profile/Card */}
         <div
           className={`flex items-center gap-2 px-4 py-2 rounded-full shadow
             ${theme === 'dark'
@@ -100,8 +110,6 @@ const Navbar = () => {
           <span className="text-xs text-[#a0e7c9] ml-1">4.8 <span>★</span></span>
           <span className="ml-1 text-xs">Premium Dealer</span>
         </div>
-
-        {/* Theme toggle button */}
         <button
           onClick={toggleTheme}
           aria-label="Toggle theme"

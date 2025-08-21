@@ -1,6 +1,38 @@
 @import "tailwindcss";
 
 :root.light {
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb; /* gray-200 */
+  --text-primary: #111827; /* gray-900 */
+  --text-secondary: #6b7280; /* gray-500 */
+  --accent: #08bc7c;
+  --price-bg: #ebf8f4;
+  --button-primary-bg: #08bc7c;
+  --button-primary-text: #ffffff;
+  --button-primary-hover: #07a56a;
+  --button-secondary-bg: #ffffff;
+  --button-secondary-text: #111827;
+  --button-secondary-border: #d1d5db; /* gray-300 */
+  --button-secondary-hover: #f3f4f6;
+}
+
+:root.dark {
+  --card-bg: #181f28;
+  --card-border: #232b36;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af; /* gray-400 */
+  --accent: #19e796;
+  --price-bg: #162128;
+  --button-primary-bg: #19e796;
+  --button-primary-text: #10191e;
+  --button-primary-hover: #15bc8a;
+  --button-secondary-bg: transparent;
+  --button-secondary-text: #ffffff;
+  --button-secondary-border: #232b36;
+  --button-secondary-hover: #232b36;
+}
+
+:root.light {
   --hero-bg-color: #eafaf7; /* Soft mint for light mode */
   --hero-dot-color: #b7e6e2cc;
 }
