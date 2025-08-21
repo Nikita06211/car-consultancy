@@ -5,6 +5,7 @@ import CarCard from "@/components/CarCard";
 import Pagination from "@/components/Pagination";
 import FiltersSidebar from "@/components/FiltersSidebar";
 import { Car } from "@/types/Car";
+import { motion } from "framer-motion";
 import { useTheme } from "@/contexts/ThemeContext";
 import { FiFilter } from "react-icons/fi";
 
@@ -32,7 +33,6 @@ export default function CarListingsWrapper() {
   const { theme } = useTheme();
   const [showFilters, setShowFilters] = useState(false);
 
-  // Filtering logic
   const filteredCars = useMemo(() => {
     let result = [...(mockData.data as Car[])];
 
@@ -124,9 +124,17 @@ export default function CarListingsWrapper() {
           </div>
 
           {/* Car Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+          <div className="grid lg:ml-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             {currentCars.map((car, index) => (
-              <CarCard key={car.car_id} car={car} imageIndex={index} />
+              <motion.div
+                key={car.car_id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.1 }}
+              >
+                <CarCard car={car} imageIndex={index} />
+              </motion.div>
             ))}
           </div>
 
